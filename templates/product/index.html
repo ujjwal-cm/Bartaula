@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+
+{% block content%}
+
+<div class="container d-flex mt-10">
+  {% if user.ecommerce_user.isSeller %}
+      <a class="btn btn-primary" href="{% url 'product:add_product'%}">Add New Product</a>
+  {% endif %}
+
+<div class="row">
+<h2>Search Result</h2>
+ {% for prd in products %}
+  <div class="card" style="width: 18rem; margin-right:2rem">
+    <img src="{{prd.product_image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{prd.product_name}}</h5>
+    </div>
+    <ul class="d-flex">
+      <a href="{{ prd.get_absolute_url }}"class="card-link">View Details</a>
+
+      <a href="{% url 'cart:add-cart' prd.id%}" class="card-link">Add To Cart</a>
+    </ul>
+    {% if user.id == prd.owner.id%}
+    <div class="card-body">
+      <a href="{% url 'product:update_product' prd.id %}" class="card-link">Edit</a>
+      <a href="{% url 'product:delete_product' prd.id %}" class="card-link">Delete</a>
+    </div>
+    {% endif %}
+</div>
+    {% endfor %}
+
+</div>
+
+<div class="container d-flex mt-10">
+
+<div class="row">
+ <h2>Recommendation</h2>
+ 
+ {% for prd in recommendation %}
+
+ {{prd}}
+  <div class="card" style="width: 18rem; margin-right:2rem">
+    <img src="{{prd.product_image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{prd.product_name}}</h5>
+    </div>
+    <ul class="d-flex">
+      <a href="{{ prd.get_absolute_url }}"class="card-link">View Details</a>
+
+      <a href="{% url 'cart:add-cart' prd.id%}" class="card-link">Add To Cart</a>
+    </ul>
+    {% if user.id == prd.owner.id%}
+    <div class="card-body">
+      <a href="{% url 'product:update_product' prd.id %}" class="card-link">Edit</a>
+      <a href="{% url 'product:delete_product' prd.id %}" class="card-link">Delete</a>
+    </div>
+    {% endif %}
+</div>
+    {% endfor %}
+
+
+
+  <form method="GET">
+    <input type="hidden" value="{{next_page}}" name="page"/>
+    <button class="btn btn-primary" type="submit">Next</button>
+  </form>
+
+</div>
+
+
+{% endblock %}

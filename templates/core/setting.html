@@ -1,0 +1,11 @@
+{%extends 'core/base.html' %}
+
+{% block content%}
+    <h1>Setting</h1>
+
+    <form action="{% url 'core:user_setting' %}" method="POST">
+    {% csrf_token %}
+        <input type="checkbox" name="isSeller" selected={{user.ecommerce_user.isSeller}}/> is Seller
+        <input type="submit"/>
+    </form>
+{% endblock %}

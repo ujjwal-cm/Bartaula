@@ -1,0 +1,11 @@
+{%extends 'core/base.html' %}
+
+{% block content%}
+    <h1>Cart</h1>
+    {% for item in cart_items %}
+        <p>Product Name:{{item.product}}</p>
+        <p>Product Price:{{item.product.price}}</p>
+        <p>Product Quantity:{{item.quantity}}</p>
+        <a href={% url "cart:remove-cart" item.product.id%}>Remove</a>
+    {% endfor %}
+{% endblock %}

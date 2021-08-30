@@ -1,0 +1,17 @@
+{%extends 'core/base.html' %}
+
+{% block content%}
+    <h1>Add Product</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+        <input type="text" placeholder="Enter Product Name" name="product_name"/>
+        <input type="textarea" placeholder="Enter Product Description" name="product_description"/>
+        <input type="number" placeholder="Enter Product Price" name="product_price"/>
+        <input type="slug" placeholder="Enter Product Slug" name="product_slug"/>
+        <input type="File" placeholder="Enter Product Image" name="product_image"/>
+
+        <input type="Submit"/>
+
+
+    </form>
+{% endblock %}

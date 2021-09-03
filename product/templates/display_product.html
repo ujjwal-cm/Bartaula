@@ -1,0 +1,42 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{% static './media/aa.png' %}" sizes="16x10">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>e-shop | Login</title>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+   
+</head>
+<body>
+  <div class="heading">
+    <h1>Our Products</h1>
+  </div>
+  
+  {% for product in products %}
+<div class="product_name">
+    Product Name :  {{product.product_name}}
+</div>
+  <div class="product_code">
+    Product Code :e-{{product.product_code}} 
+  </div>
+<div class="product_price">
+    Product Price :  ${{product.product_price}}
+</div>
+
+  <a href="edit/{{product.id}}">Edit this</a> <br>
+  <a href="delete/{{ product.id }}">Delete</a> <br>
+  ==================================================================<br>
+  {% empty %}
+        There are no Products.
+    {% endfor %}
+</body>
+
+</body>
+</html>

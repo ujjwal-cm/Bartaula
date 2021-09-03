@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="{% static './media/aa.jpg' %}" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Organic Food | Complete Electronic Platform</title>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+  </head>
+  <body>
+    
+      <div class="container-fluid">
+        <div id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <a class="navbar-brand text-warning font-weight-bold" href="{% url 'home' %}"
+            >Organic Food</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-light" href="{% url 'home' %}" >Home</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'ourproduct' %}">Products</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'signup' %}">Register</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'contact' %}">Contact</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'search' %}">Search Product</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+<div class="heading" style="font-size: 30px; color:brown; font-family:serif; text-align:center; padding-top:20px">
+    Search Our Product
+</div>
+ <div class="search-bar" >
+      <nav class="navbar navbar-light mx-auto">
+        <form class="form-inline" method="POST">
+            {% csrf_token %}
+          <input class="form-control col-lg-10 mr-2"  name="search" placeholder="Search Product.." aria-label="Search" style="width:550px">
+          <button type="submit" class="btn bth-primary">Search</button>
+        </form>
+      </nav>
+    </div>
+    
+    <!-- <div class="heading" style="font-size: 20px; color:rgb(28, 82, 230); font-family:serif;  padding-top:20px">
+        Your Result:
+    </div> -->
+                  <div class="row" style="margin-left:200px">
+                    
+                        {% if sr %}
+                        {% for rows in sr %}
+                       <div class="search_item col-lg-3 mx-2 my-4">
+                       
+                      
+                        <img src="{{rows.product_image.url}}" style="height: 350px; width:225px;"><br> <hr>
+                                <span style="font-weight: bold; text-transform:capitalize">{{rows.product_name}}</span> <br> <hr>
+                              <span>Product Code:e-{{rows.product_code}} </span> <br>
+                              <hr>
+                               <span>Product price:${{rows.product_price}} </span><br><hr>
+                                
+                                   
+                            
+                                       
+                               
+                                <button type="button" class="btn-primary col-lg-12">Buy Now</button><br> <hr>
+                                <button type="button" class="btn-warning col-lg-12">Add to Cart</button><br> <hr>
+                       </div>
+                                
+                        {% endfor %}
+                     
+                        {% endif %}
+                  
+                      
+                    
+                   </div>              
+                  
+                    
+
+  </div>
+  </div>
+  </div>
+  </div>
+  
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+  </body>
+</html>
+
+    <!-- <div class="bar">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
+    </div> -->
+
+            <!-- {% if sr %}
+            {% for rows in sr %}
+          
+            <img src="{{rows.product_image.url}}" style="height: 350px; width:225px;"><br>
+                   {{rows.product_name}} <br>
+                   {{rows.product_code}} <br>
+                   {{rows.product_price}} <br>
+                    
+                       
+                
+                           
+                   
+                    <button type="button" class="btn-primary col-lg-12">Buy Now</button><br>
+                    <button type="button" class="btn-warning col-lg-12">Add to Cart</button><br> -->
+                   
+                    
+            <!-- {% endfor %}
+         
+            {% endif %}
+                   </header>
+                     -->
+    

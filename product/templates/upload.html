@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title></title>
+  </head>
+  <body>
+    <h1
+      style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:darkblue"
+    >
+      Upload Files
+    </h1>
+
+    <form action="upload" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <hr />
+      <input
+        type="file"
+        name="file"
+        id="name"
+        value=""
+        placeholder="select file"
+        style="color:darkgoldenrod; margin-top:20px; margin-bottom:20px; margin-left:100px; padding:30px"
+      /><br />
+      <input
+        type="submit"
+        value="submit file"
+        style="margin-left:100px; margin-bottom:30px; border:1px solid black; background-color:indianred; padding:10px"
+      />
+    </form>
+    <hr />
+
+    <a
+      href="{% url 'uploaded-files' %}"
+      style="text-decoration: none; font-family:monospace; color:navy; font-size:x-large; margin-top:40px;"
+      >View Uploaded files</a
+    >
+  </body>
+</html>

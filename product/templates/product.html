@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>e-shop | Complete Electronic Platform</title>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+    <style>
+      .heading {
+        margin-top: 19px;
+        text-align: center;
+      }
+      .heading span {
+        color: cornflowerblue;
+        font-size: larger;
+        font-weight: 700;
+        font-size: x-large;
+        font-family: inherit;
+      }
+      .row{
+        margin-left: 140px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="navbar">
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-info"
+          style="position: sticky;"
+        >
+          <a class="navbar-brand text-warning font-weight-bold" href="#"
+            >e-shop</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-dark" href="{% url 'home' %}" >Home</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'ourproduct' %}">Products</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'signup' %}">Register</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'contact' %}">Contact</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'search' %}">Search Product</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="heading">
+        <span>
+          Our Products
+        </span>
+      </div>
+      <div class="products container-fluid">
+      <div class="row">
+      
+        
+          {% for product in products %}
+          <div class="card col-md-3 mr-4 my-4" style="width: 18rem;">
+            <div class="image">
+            <img src="{{product.product_image.url}}" style="height: 350px; width:225px;">
+            </div>
+            <div class="card-header font-weight-bold">
+              {{product.product_name}}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Product Code:e-{{product.product_code}}</li>
+              <li class="list-group-item">
+                Product Price : ${{product.product_price}}
+              </li>
+             
+                
+                <li class="list-group-item"><button type="button" class="btn-warning col-lg-12">Add to Cart</button></li>
+             
+              
+            </ul>
+         
+        </div>
+        {% empty %} no product available{% endfor %}
+    </div>
+</div>
+<div class="footer_links" style="background-color: black; color:blanchedalmond"><span style="color: brown; font-size: 20px;">Our links</span> <br>
+  <div class="row" >
+    
+      <div class="left col-md-4" >
+        <a class="nav-item nav-link text-light" href="{% url 'home' %}" >Home</a>
+        <a class="nav-item nav-link text-light" href="{% url 'ourproduct' %}">Products</a>
+        <a class="nav-item nav-link text-light" href="{% url 'login' %}">Login</a>
+        </div>
+      <div class="right col-md-3">
+        <a class="nav-item nav-link text-light" href="{% url 'signup' %}">Register</a>
+      <a class="nav-item nav-link text-light" href="{% url 'contact' %}">Contact</a>
+      <a class="nav-item nav-link text-light" href="{% url 'search' %}">Search Product</a> 
+      </div>
+      <div id="contact_information" class="ml-5" style="margin-left: 50px;"> 
+         <div class="our_name" style="display: block; font-size:20px; color:white">&#9962; e-Shop Nepal</div>
+         <div class="our_name" style="display: block; font-size:20px; color:white">&#128506; Hadigaun,Kathmandu</div>
+         <div class="our_name" style="display: block; font-size:20px; color:white">&#128231; info@eshop.com,khsafal47@gmail.com</div>
+         <div class="our_name" style="display: block; font-size:20px; color:white">&#9742; +977-9867813880,+977-9812121212</div>
+     </div>
+    </div>
+    <hr style="background-color:rgb(255, 255, 255);">
+    
+<center style="padding-bottom: 10px;">&copy; e-Shop Nepal,Hadigaun, Kathmandu. All right reserved 2015-2020</center>
+    
+  </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!-- {% for file in files %}
+<div class="card col-md-3 mr-4 my-4" style="width: 18rem;">
+  <div class="image">
+    <img src="{{file.file.url}}" style="height: 350px; width:225px;" />
+  </div>
+</div>
+{% empty %} no product available{% endfor %} -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="{% static './media/aa.jpg' %}" sizes="16x16" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>{{user}} | Complete Electronic Platform</title>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+    
+    </style>
+  </head>
+  <body style="overflow-x: hidden;">
+   <div class="contrtainer">
+       <h3 style="font-size: xx-large; padding-top:15px;padding-left:15px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color:rgb(16, 112, 238)">Our uploaded Files</h3>
+  <hr>
+  <div class="row">
+    {% for file in files %}
+      <div class="files col-md-3 ml-5">
+         
+<div class="card col-md-3 mr-4 my-4 mb-5" style="width: 18rem;">
+  <div class="image">
+    <img src="{{file.file.url}}" style="height: 350px; width:225px;" />
+  </div>
+</div>
+<hr>
+      </div>
+      {% empty %} No file uploaded{% endfor %}
+  </div>
+    </div>
+  </body>
+</html>

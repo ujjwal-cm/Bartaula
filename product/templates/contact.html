@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="{% static './media/aa.jpg' %}" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>e-shop | Complete Electronic Platform</title>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+
+    <style>
+        body{
+            background: linear-gradient(to right, #005aa7, #fffde4);
+        }
+        #contact-form{
+            text-align: center;
+            padding-top: 10px;
+        }
+    #contact-form .heading{
+        color: #132483;
+        font-family: fantasy;
+        font-size:xx-large;
+      
+       
+    }
+
+    #contact_us_form{
+        border: 2px solid rgb(14, 11, 11); 
+        margin-top:40px;
+         border-bottom-left-radius: 20px;
+         border-top-right-radius: 20px;
+        
+    }
+    </style>
+  </head>
+  <body>
+    
+      <div class="container-fluid">
+        <div id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <a class="navbar-brand text-warning font-weight-bold" href="{% url 'home' %}"
+            >e-shop</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link text-dark" href="{% url 'home' %}" >Home</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'ourproduct' %}">Products</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'signup' %}">Register</a>
+              <a class="nav-item nav-link text-dark" href="{% url 'contact' %}">Contact</a>
+            </div>
+          </div>
+        </nav>
+        </div>
+        <div class="container">
+               <div id="contact_us_form">
+                <div id="contact-form">
+                    <span class="heading">Feel Free to Contact Us!</span>
+                    <!-- //#contact-form -->  
+                </div>
+                <div id="form-contact"
+                style="margin:20px; color:rgb(59, 40, 231), 0, 77)"
+                >
+                    <form>
+                        <div class="form-group text-light">
+                            <label for="exampleFormControlInput2 ">Name</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Your name"
+                          </div>
+
+                        <div class="form-group text-light">
+                          <label for="exampleFormControlInput1">Email address</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" >
+                        </div>
+                        
+                        <div class="form-group text-light">
+                          <label for="exampleFormControlTextarea1">Your Message</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                        </div>
+                       <!-- Button trigger modal -->
+<button  onclick="myFunction()" type="submit" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModalLong">
+    Send Message
+  </button>
+  <p id="message" style="padding-top: 5px; color:rgb(23, 184, 8)"></p>
+               </div>
+               </form>
+               </div>
+               </div>
+               <div id="contact_information" style="margin-bottom: 40px;"> 
+                   <h3 class="heading" style="padding-top: 50px; font-size:35px">Our Contact Details</h3><hr style="background-color:rgb(8, 7, 6)">
+                    <div class="our_name" style="display: block; font-size:20px; color:white">&#9962; e-Shop Nepal</div>
+                    <div class="our_name" style="display: block; font-size:20px; color:white">&#128506; Hadigaun,Kathmandu</div>
+                    <div class="our_name" style="display: block; font-size:20px; color:white">&#128231; info@eshop.com,khsafal47@gmail.com</div>
+                    <div class="our_name" style="display: block; font-size:20px; color:white">&#9742; +977-9867813880,+977-9812121212</div>
+                </div>
+                <div id="our_location" style="margin-bottom: 50px;"> 
+                    <h3 class="heading" style="padding-top: 30px; font-size:35px">Our Location</h3><hr style="background-color:rgb(8, 7, 6)">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.9506245421476!2d85.33654321456564!3d27.718810731595955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb196de5da5741%3A0x652792640c70ede9!2sHerald%20College%20Kathmandu!5e0!3m2!1sen!2snp!4v1581346130368!5m2!1sen!2snp" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                 </div>
+                 <div class="footer_links" style="background-color: black; color:blanchedalmond"><span style="color: brown; font-size: 20px;">Our links</span> <br>
+                  <div class="row" >
+                    
+                      <div class="left col-md-4" >
+                        <a class="nav-item nav-link text-light" href="{% url 'home' %}" >Home</a>
+                        <a class="nav-item nav-link text-light" href="{% url 'ourproduct' %}">Products</a>
+                        <a class="nav-item nav-link text-light" href="{% url 'login' %}">Login</a>
+                        </div>
+                      <div class="right col-md-3">
+                        <a class="nav-item nav-link text-light" href="{% url 'signup' %}">Register</a>
+                      <a class="nav-item nav-link text-light" href="{% url 'contact' %}">Contact</a>
+                      <a class="nav-item nav-link text-light" href="{% url 'search' %}">Search Product</a> 
+                      </div>
+                      <div id="contact_information" class="ml-5" style="margin-left: 50px;"> 
+                         <div class="our_name" style="display: block; font-size:20px; color:white">&#9962; e-Shop Nepal</div>
+                         <div class="our_name" style="display: block; font-size:20px; color:white">&#128506; Hadigaun,Kathmandu</div>
+                         <div class="our_name" style="display: block; font-size:20px; color:white">&#128231; info@eshop.com,khsafal47@gmail.com</div>
+                         <div class="our_name" style="display: block; font-size:20px; color:white">&#9742; +977-9867813880,+977-9812121212</div>
+                     </div>
+                    </div>
+                    <hr style="background-color:rgb(255, 255, 255);">
+                    
+            <center style="padding-bottom: 10px;">&copy; e-Shop Nepal,Hadigaun, Kathmandu. All right reserved 2015-2020</center>
+                    
+                  </div>
+  
+  <script>
+    function myFunction() {
+      var txt;
+      if (confirm("Are you sure to send message?")) {
+        txt = "Message has been sent";
+      } else {
+        txt = "Message sending error";
+      }
+      document.getElementById("message").innerHTML = txt;
+    }
+    </script>
+    <script src="{% static '/css/bootstrap.min.js' %}"></script>
+    <script src="{% static '/css/jquery.js' %}"></script>
+  </body>
+</html>
